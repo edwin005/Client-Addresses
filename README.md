@@ -9,6 +9,7 @@ with that client will be automatically deleted.
 
 ## Tech Stack
 - Java
+- Spring
 - HTML
 - JPA
 - Thymeleaf
