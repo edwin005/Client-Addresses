@@ -2,8 +2,6 @@ package com.clients.address.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +19,10 @@ import com.clients.address.model.Client;
 import com.clients.address.services.IAddressService;
 import com.clients.address.services.IClientService;
 
-
+/**
+ * Client Controller.
+ * @author Edwin De Los Santos A.
+ */
 @Controller
 @RequestMapping("/views/client")
 public class ClientController {
@@ -32,6 +33,11 @@ public class ClientController {
 	@Autowired
 	private IAddressService addressServiceImpl;
 	
+	/**
+	 * This method takes users to the clients page.
+	 * @author Edwin De Los Santos A.
+	 * @return Clients route.
+	 */
 	@GetMapping("/")
 	public String getClients(Model model) {
 		List<Client> clientList = clientServiceImpl.getClients();
@@ -40,6 +46,11 @@ public class ClientController {
 		return "views/client/clients";
 	}
 	
+	/**
+	 * This method takes user to the create client form.
+	 * @author Edwin De Los Santos A.
+	 * @return Create client route.
+	 */
 	@GetMapping("/createClient")
 	public String createClient(Model model) {
 		Client client = new Client();
@@ -48,6 +59,11 @@ public class ClientController {
 		return "views/client/createClient";
 	}
 	
+	/**
+	 * This method saves an address and takes user to the clients pages.
+	 * @author Edwin De Los Santos A.
+	 * @return Clients route.
+	 */
 	@PostMapping("/saveClient")
 	public String saveClient(@Validated @ModelAttribute Client client, BindingResult result, Model model, RedirectAttributes redirect) {
 		if(result.hasErrors()) {
@@ -62,6 +78,11 @@ public class ClientController {
 		return "redirect:/views/client/";
 	}
 	
+	/**
+	 * This method takes user to the edit client form.
+	 * @author Edwin De Los Santos A.
+	 * @return Edit client route;
+	 */
 	@GetMapping("/editClient/{id}")
 	public String displayEditClientForm(@PathVariable("id") Long clientId, Model model, RedirectAttributes redirect) {
 		Client client = null;
@@ -81,6 +102,11 @@ public class ClientController {
 		return "views/client/createClient";
 	}
 	
+	/**
+	 * This method edits a specified client and takes user to the client page.
+	 * @author Edwin De Los Santos A.
+	 * @return Clients route;
+	 */
 	@PostMapping("/editClient/{id}")
 	public String editClient(@PathVariable("id") Long clientId, @Validated Client client, BindingResult result, Model model, RedirectAttributes redirect) {
 		if(clientId > 0) {
@@ -115,6 +141,11 @@ public class ClientController {
 		}
 	}
 	
+	/**
+	 * This method deletes a specified client.
+	 * @author Edwin De Los Santos A.
+	 * @return Clients route;
+	 */
 	@GetMapping("/deleteClient/{id}")
 	public String deleteClient(@PathVariable("id") Long clientId, Model model, RedirectAttributes redirect) {
 		Client client = null;

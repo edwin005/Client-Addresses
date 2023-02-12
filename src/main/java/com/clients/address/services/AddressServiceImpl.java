@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import com.clients.address.model.Address;
 import com.clients.address.repository.AddressRepository;
 
+/**
+ * Implementation of Address Service.
+ * @author Edwin De Los Santos A.
+ */
 
 @Service
 public class AddressServiceImpl implements IAddressService {

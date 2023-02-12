@@ -19,6 +19,10 @@ import com.clients.address.model.Client;
 import com.clients.address.services.IAddressService;
 import com.clients.address.services.IClientService;
 
+/**
+ * Address Controller.
+ * @author Edwin De Los Santos A.
+ */
 @Controller
 @RequestMapping("/views/address")
 public class AddressController {
@@ -29,6 +33,11 @@ public class AddressController {
 	@Autowired
 	private IClientService clientServiceImpl;
 	
+	/**
+	 * This method takes users to the addresses page.
+	 * @author Edwin De Los Santos A.
+	 * @return Addresses route.
+	 */
 	@GetMapping("/")
 	public String getAddresses(Model model) {
 		List<Address> addressList = addressServiceImpl.getClientAddress();
@@ -38,6 +47,11 @@ public class AddressController {
 		return "views/address/clientAddresses";
 	}
 	
+	/**
+	 * This method takes user to the create address form.
+	 * @author Edwin De Los Santos A.
+	 * @return Create Address route.
+	 */
 	@GetMapping("/createAddress")
 	public String createAddress(Model model) {
 		Address address = new Address();
@@ -50,6 +64,11 @@ public class AddressController {
 		return "views/address/createAddress";
 	}
 	
+	/**
+	 * This method saves an address and takes user to the addresses pages.
+	 * @author Edwin De Los Santos A.
+	 * @return Addresses route.
+	 */
 	@PostMapping("/saveAddress")
 	public String saveAddress(@Validated @ModelAttribute Address address, BindingResult result, Model model, RedirectAttributes redirect) {
 		List<Client> clients = clientServiceImpl.getClients();
@@ -65,6 +84,11 @@ public class AddressController {
 		return "redirect:/views/address/";
 	}
 	
+	/**
+	 * This method takes user to the edit address form.
+	 * @author Edwin De Los Santos A.
+	 * @return edit Address route;
+	 */
 	@GetMapping("/editClientAddress/{id}")
 	public String displayEditClientAddressForm(@PathVariable("id") Long addressId, Model model) {
 		Address address = addressServiceImpl.findAddressById(addressId);
@@ -76,6 +100,11 @@ public class AddressController {
 		return "views/address/createAddress";
 	}
 	
+	/**
+	 * This method edits a specified address and takes user to the address page.
+	 * @author Edwin De Los Santos A.
+	 * @return Addresses route;
+	 */
 	@PostMapping("/editClientAddress/{id}")
 	public String editClientAddress(@PathVariable("id") Long addressId, @Validated Address address, BindingResult result, Model model, RedirectAttributes redirect) {
 
@@ -115,6 +144,11 @@ public class AddressController {
 		}
 	}
 	
+	/**
+	 * This method deletes a specified address.
+	 * @author Edwin De Los Santos A.
+	 * @return Addresses route;
+	 */
 	@GetMapping("/deleteClientAddress/{id}")
 	public String deleteClientAddress(@PathVariable("id") Long addressId, RedirectAttributes redirect) {
 		Address address = null;

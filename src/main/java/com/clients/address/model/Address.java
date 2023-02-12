@@ -13,6 +13,10 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+/**
+ * Address Controller.
+ * @author Edwin De Los Santos A.
+ */
 @Entity
 @Table(name="address")
 public class Address implements Serializable{

@@ -17,6 +17,10 @@ import javax.validation.constraints.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+/**
+ * Client Controller.
+ * @author Edwin De Los Santos A.
+ */
 @Entity
 @Table(name="client")
 public class Client implements Serializable{

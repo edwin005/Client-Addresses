@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 import com.clients.address.model.Client;
 import com.clients.address.repository.ClientRepository;
 
-
+/**
+ * Implementation of Client Service.
+ * @author Edwin De Los Santos A.
+ */
 @Service
 public class ClientServiceImpl implements IClientService {
 	
