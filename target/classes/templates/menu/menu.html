@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="UTF-8">
+	<title>Clientes</title>
+	<!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">-->
+</head>
+
+<body>
+	<!--  Navigation -->
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+			<div class="container">
+				<!--Menu links-->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link text-white h5" th:href="@{/views/client/}">Clients</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-white h5" th:href="@{/views/address/}">Address</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+</body>
+
+
+</html>
